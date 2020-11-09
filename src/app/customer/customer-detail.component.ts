@@ -9,7 +9,7 @@ import {User} from '../model/user';
   styleUrls: ['./customer-detail.component.scss']
 })
 export class CustomerDetailComponent implements OnInit {
-  object: User;
+  customer: User;
 
   operation = 'edit';
 
@@ -20,7 +20,7 @@ export class CustomerDetailComponent implements OnInit {
   ngOnInit(): void {
     this.meta.registerDependency('controller', this);
 
-    this.object = new User('EB0001',
+    this.customer = new User('EB0001',
       'Fred', 'Flinstone', new Date(1975, 5, 12),
       'Married', 2, 'Rock and Gravel Company', 'fred@rock.io',
       'Personal', ['Phone']);
