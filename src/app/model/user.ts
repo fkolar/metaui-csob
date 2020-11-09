@@ -1,4 +1,4 @@
-import {Entity, Property, Trait} from '@ngx-metaui/rules';
+import {Entity} from '@ngx-metaui/rules';
 import {Airline} from './airline';
 import {Animal} from './animal';
 
@@ -9,24 +9,16 @@ export class User implements Entity {
 
 
   constructor(
-    @Trait.Required()
-    @Property.Label('My Title')
-    public title?: string,
-
     public uniqueName?: string,
     public firstName?: string,
     public lastName?: string,
-
-    @Trait.Required()
-    public favColor?: string,
-    public birthDate?: Date,
-    public prefAirline?: Airline,
-    public favAnimal?: Animal,
-    public toppings?: string[],
-    public isChecked: boolean = false,
-
-    @Trait.Traits(['fluid', 'longtext'])
-    public description?: string) {
+    public birthdate?: Date,
+    public martialStatus?: string,
+    public numOfChildren?: number,
+    public employer?: string,
+    public email?: string,
+    public accountType?: string,
+    public contactMethod?: string[]) {
   }
 
   identity(): string {
@@ -36,17 +28,16 @@ export class User implements Entity {
 
   getTypes(): any {
     return {
-      title: String,
       uniqueName: String,
       firstName: String,
       lastName: String,
-      favColor: String,
-      birthDate: Date,
-      favAnimal: Animal,
-      toppings: Array(String),
-      isChecked: Boolean,
-      prefAirline: Airline,
-      description: String
+      birthdate: Date,
+      martialStatus: String,
+      numOfChildren: Number,
+      employer: String,
+      email: String,
+      accountType: String,
+      contactMethod: Array(String)
     };
   }
 
