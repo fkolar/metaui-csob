@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CustomerDetailComponent} from './customer/customer-detail.component';
+import {CustomerViewComponent} from './customer/customer-detail.component';
 
 const routes: Routes = [
   {
     path: '', redirectTo: '/user', pathMatch: 'full'
   },
-  {path: 'user', component: CustomerDetailComponent}
+  {path: 'user', component: CustomerViewComponent}
 
 ];
 

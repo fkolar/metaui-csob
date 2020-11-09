@@ -1,0 +1,9 @@
+<a mat-button (click)="operation='edit'">Edit</a> |
+<a mat-button (click)="operation='view'">View</a> |
+<a mat-button (click)="operation='create'">Create</a>
+
+<m-context [object]="customer" [operation]="operation" layout="Inspect">
+  <m-include-component></m-include-component>
+</m-context>
+
+

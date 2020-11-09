@@ -6,7 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialRulesModule} from '@ngx-metaui/material-rules';
 import {MetaConfig, MetaUIRulesModule} from '@ngx-metaui/rules';
 import * as userRules from './user-rules';
-import {CustomerDetailComponent} from './customer/customer-detail.component';
+import {CustomerViewComponent} from './customer/customer-detail.component';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
@@ -17,7 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerDetailComponent
+    CustomerViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import {META_RULES, MetaRules} from '@ngx-metaui/rules';
-import {User} from '../model/user';
+import {User} from '../../model/user';
 
 
 @Component({
@@ -8,7 +8,7 @@ import {User} from '../model/user';
   templateUrl: './customer-detail.component.html',
   styleUrls: ['./customer-detail.component.scss']
 })
-export class CustomerDetailComponent implements OnInit {
+export class CustomerCreateComponent implements OnInit {
   customer: User;
 
   operation = 'edit';
