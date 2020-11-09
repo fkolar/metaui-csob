@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AppRoute, RoutingService} from '@ngx-metaui/rules';
-import {Observable} from 'rxjs';
+import {RoutingService} from '@ngx-metaui/rules';
 import {FormControl} from '@angular/forms';
 
 

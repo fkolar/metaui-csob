@@ -1,6 +1,4 @@
 import {Entity} from '@ngx-metaui/rules';
-import {Airline} from './airline';
-import {Animal} from './animal';
 
 /**
  * This is generated class
