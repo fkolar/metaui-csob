@@ -1,0 +1,14 @@
+/*
+    Default definition
+*/
+class=Airline {
+
+    field=name {
+      trait:labelField;
+    }
+
+}
+
+
+
+

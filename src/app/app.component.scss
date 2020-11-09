@@ -1,0 +1,33 @@
+.form-card {
+  padding: 15px;
+  width: 100%;
+  max-width: 1000px;
+
+
+  .form-field  {
+    width: 100%;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+.highlight-code {
+  background-color: #e8e8e8;
+}
