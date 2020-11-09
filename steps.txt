@@ -1,0 +1,248 @@
+Layout
+
+class=User {
+
+    field=accountType {
+        trait:asSelect;
+        choices:['Personal', 'Business'];
+    }
+
+    field=contactMethod {
+        choices:['Email', 'Phone', 'Mail'];
+    }
+
+    field=martialStatus {
+        trait:asSelect;
+        choices:['Single', 'Married'];
+    }
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+
+=====
+Required
+
+class=User {
+
+   field=(firstName, lastName) {
+     trait: required;
+    }
+
+    field=accountType {
+        trait:asSelect;
+        choices:['Personal', 'Business'];
+    }
+
+    field=contactMethod {
+        choices:['Email', 'Phone', 'Mail'];
+    }
+
+    field=martialStatus {
+        trait:asSelect;
+        choices:['Single', 'Married'];
+    }
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+=====
+visible
+
+class=User {
+
+
+    field=accountType {
+        trait:asSelect;
+        choices:['Personal', 'Business'];
+    }
+
+    field=contactMethod {
+        choices:['Email', 'Phone', 'Mail'];
+    }
+
+    field=martialStatus {
+        trait:asSelect;
+        choices:['Single', 'Married'];
+    }
+
+    field=numOfChildren {
+      visible: ${object.accountType === "Personal"};
+    }
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+=====
+radio
+
+class=User {
+
+   field=(firstName, lastName) {
+    trait: required;
+   }
+
+    field=accountType {
+        trait:asRadio;
+        choices:['Personal', 'Business'];
+    }
+
+    field=contactMethod {
+        choices:['Email', 'Phone', 'Mail'];
+    }
+
+    field=martialStatus {
+        trait:asSelect;
+        choices:['Single', 'Married'];
+    }
+
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+====
+
+layout edit view create
+
+Layout edit create jiny
+
+class=User {
+
+   field=(firstName, lastName) {
+    trait: required;
+   }
+
+    field=accountType {
+        trait:asRadio;
+        choices:['Personal', 'Business'];
+    }
+
+    field=contactMethod {
+        choices:['Email', 'Phone', 'Mail'];
+    }
+
+    field=martialStatus {
+        trait:asSelect;
+        choices:['Single', 'Married'];
+    }
+
+    field=numOfChildren {
+      visible: ${object.accountType === "Personal"};
+    }
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+
+class=User {
+   operation=(edit, view) {
+      zNone => *;
+      zLeft => firstName => lastName => birthdate => martialStatus;
+      zRight => employer => email => accountType => numOfChildren => contactMethod;
+   }
+
+  operation=(create) {
+      zNone => *;
+      zLeft => firstName => lastName => birthdate => martialStatus;
+   }
+}
+
+
+
+
+===========
+
+
+
+role admin
+
+class=User {
+
+   field=(firstName, lastName) {
+    trait: required;
+   }
+
+    field=accountType {
+        trait:asRadio;
+        choices:['Personal', 'Business'];
+    }
+
+    field=contactMethod {
+        choices:['Email', 'Phone', 'Mail'];
+    }
+
+    field=martialStatus {
+        trait:asSelect;
+        choices:['Single', 'Married'];
+    }
+
+    field=numOfChildren {
+      visible: ${object.accountType === "Personal"};
+    }
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+
+class=User {
+   operation=(edit, view) {
+      zNone => *;
+      zLeft => firstName => lastName => birthdate => martialStatus;
+      zRight => employer => email => accountType => numOfChildren => contactMethod;
+   }
+
+  operation=(create) {
+      zNone => *;
+      zLeft => firstName => lastName => birthdate => martialStatus;
+   }
+}
+
+
+role=admin class=User {
+   zNone => *;
+   zLeft => uniqueName => firstName => lastName => birthdate => martialStatus => employer => email => accountType => numOfChildren => contactMethod;
+}
+
+
+
+
+
+=====
+
+   validace
+
+field=email {
+      valid: ${value.indexOf('@') !== -1 ? true : 'Wrong eamil'};
+}
+
+
+
+field {
+	placeholder: 'Enter a value';
+}
+
+
+
+field=martialStatus {
+    trait:asSelect;
+    choices:['Single', 'Married'];
+    hint: "We dot not store this information!";
+}

@@ -1,15 +1,15 @@
-/*
-    User rules.oss -- Meta-data rules. Generated file
-
-    Default definition
-*/
 class=User {
-    field {
-      after: zLeft;
-    }
+
+  field {
+  	placeholder: 'Enter a value';
+  }
+
+   field=(firstName, lastName) {
+    trait: required;
+   }
 
     field=accountType {
-        trait:asSelect;
+        trait:asRadio;
         choices:['Personal', 'Business'];
     }
 
@@ -21,16 +21,36 @@ class=User {
         trait:asSelect;
         choices:['Single', 'Married'];
     }
+
+    field=numOfChildren {
+      visible: ${object.accountType === "Personal"};
+    }
+
+    zNone => *;
+    zLeft => uniqueName => firstName => lastName => birthdate => martialStatus;
+    zRight => employer => email => accountType => numOfChildren => contactMethod;
 }
 
 
 
+class=User {
+   operation=(edit, view) {
+      zNone => *;
+      zLeft => firstName => lastName => birthdate => martialStatus;
+      zRight => employer => email => accountType => numOfChildren => contactMethod;
+   }
+
+  operation=(create) {
+      zNone => *;
+      zLeft => firstName => lastName => birthdate => martialStatus;
+   }
+}
 
 
-
-
-
-
+role=admin class=User {
+   zNone => *;
+   zLeft => uniqueName => firstName => lastName => birthdate => martialStatus => employer => email => accountType => numOfChildren => contactMethod;
+}
 
 
 
